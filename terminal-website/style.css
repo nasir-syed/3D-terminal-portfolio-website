@@ -163,6 +163,10 @@
   .modal-content {
     display: flex;
     flex-direction: column;
+    overflow-y: auto; /* Enables vertical scrolling if content exceeds height */
+    max-height: calc(80vh - 40px); /* Keeps content within 80% of the viewport height minus padding */
+    word-wrap: break-word; /* Ensures long text wraps properly */
+    gap: 10px; /* Adds space between items */
   }
   
   .project-modal h2 {
