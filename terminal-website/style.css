@@ -153,11 +153,12 @@
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     z-index: 1000;
-    overflow-y: auto;
-    word-wrap: break-word;
     cursor: move;
   }
   
+  .modal-content {
+    width: 100%;
+  }
   .project-modal .modal-content {
     padding: 10px;
   }
@@ -165,7 +166,6 @@
   .modal-content {
     display: flex;
     flex-direction: column;
-    width: 100%;
 
   }
   
