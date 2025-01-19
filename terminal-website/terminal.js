@@ -1,19 +1,29 @@
 let terminalOutput;
 let userInput;
+let terminalWind;
 let modals = {}; // Track open modals for each project
 
 export const app = () => {
   userInput = document.getElementById("userInput");
   terminalOutput = document.getElementById("terminalOutput");
+  terminalWind = document.getElementById("terminalWindow")
 
   console.log("Terminal Div:", document.getElementById("userInput"));
   console.log("Terminal Output Div:", document.getElementById("terminalOutput"));
 
-  if (!userInput || !terminalOutput) {
+  if (!userInput || !terminalOutput || !terminalWind) {
     console.error("Terminal elements are not found. Retrying initialization...");
     setTimeout(app, 100); // Retry initialization after a short delay
     return;
   }
+
+  terminalWind.addEventListener("touchstart", () => {
+    document.body.classList.add("no-scroll");
+  });
+  
+  terminalWind.addEventListener("touchend", () => {
+    document.body.classList.remove("no-scroll");
+  });
 
   console.log("Terminal elements initialized successfully.");
 };
@@ -159,6 +169,10 @@ function closeProjectModal(projectId, modal) {
 
 window.showProjectModal = showProjectModal;
 window.closeProjectModal = closeProjectModal;
+
+
+
+
 
 document.addEventListener("keypress", key);
 document.addEventListener("DOMContentLoaded", () => {
