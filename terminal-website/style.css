@@ -147,38 +147,39 @@
     background: rgba(0, 0, 0, 0.8);
     color: white;
     padding: 20px;
-    width: 90%; /* Ensures the modal is responsive */
+    width: 90%; 
     max-width: 400px;
     max-height: 80%;
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     z-index: 1000;
-    overflow: hidden; /* Prevents content from overflowing the modal */
+    overflow: hidden; 
     display: flex;
     flex-direction: column;
-    box-sizing: border-box; /* Ensures padding is included in width/height */
+    box-sizing: border-box; 
   }
   
   .project-modal .modal-content {
     display: flex;
     flex-direction: column;
-    overflow-y: auto; /* Enables scrolling if content is too long */
-    word-wrap: break-word; /* Breaks long words to prevent overflow */
-    width: 100%; /* Ensures content stays within modal boundaries */
-    box-sizing: border-box; /* Prevents padding from causing overflow */
+    overflow-y: auto;
+    word-wrap: break-word; 
+    width: 100%; 
+    box-sizing: border-box; 
   }
   
   .project-modal h2 {
     color: #4069f9;
     margin-bottom: 10px;
     font-size: 1rem; /* Scales down for smaller screens */
-    word-wrap: break-word; /* Prevents long titles from overflowing */
+    word-wrap: break-word; 
   }
   
   .project-modal .close-btn {
     font-family: "Press Start 2P";
+    margin-left: auto;
     font-size: 9px;
-    width: auto;
+    width: 25%;
     padding: 5px 10px;
     color: #ff4e4e;
     background: transparent;
