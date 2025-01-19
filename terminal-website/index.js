@@ -37,7 +37,7 @@ loader.load(
       <div class="terminal-window" id="terminalWindow">
         <div class="terminal-output" id="terminalOutput">
           <div class="terminal-line">
-            <span class="help-msg">Welcome to my portfolio! — Type <span class="code">help</span> for a list of supported commands.</span>
+            <span class="help-msg">Welcome to my portfolio! — Type <span class="code">help</span> for a list of commands.</span>
           </div>
         </div>
         <div class="terminal-line">
