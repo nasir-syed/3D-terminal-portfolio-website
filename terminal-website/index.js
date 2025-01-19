@@ -37,7 +37,7 @@ loader.load(
       <div class="terminal-window">
         <div class="terminal-output" id="terminalOutput">
           <div class="terminal-line">
-            <span class="help-msg">Welcome to my portfolio! — Type <span class="code">help</span> for a list of supported commands.</span>
+            <span class="help-msg">Welcome to my portfolio! — Type <span class="code">help</span> for a list of commands.</span>
           </div>
         </div>
         <div class="terminal-line">
@@ -52,7 +52,7 @@ loader.load(
     terminalObject = new CSS3DObject(terminalDiv);
 
     // Position and scale the terminal to fit the 3D model screen
-    terminalObject.position.set(0, 6.2, 9);
+    terminalObject.position.set(0, 6.1, 9);
     terminalObject.scale.set(0.050, 0.056, 0.055);
 
     // Add the terminal as a child of the 3D model
