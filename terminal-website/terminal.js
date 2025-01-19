@@ -39,8 +39,14 @@ const execute = function executeCommand(input) {
   }
 
   terminalOutput.innerHTML += `<div class="terminal-line">${output}</div>`;
-  terminalOutput.scrollTop = terminalOutput.scrollHeight;
+
+  // Automatically scroll to the bottom of the terminal window
+  const terminalWindow = terminalOutput.closest('.terminal-window'); // Get the parent container
+  if (terminalWindow) {
+    terminalWindow.scrollTop = terminalWindow.scrollHeight;
+  }
 };
+
 
 const key = function keyEvent(e) {
   if (!userInput) {

@@ -37,7 +37,7 @@ loader.load(
       <div class="terminal-window">
         <div class="terminal-output" id="terminalOutput">
           <div class="terminal-line">
-            <span class="help-msg">Welcome to my portfolio! — Type <span class="code">help</span> for a list of supported commands.</span>
+            <span class="help-msg">Welcome to my portfolio! — Type <span class="code">help</span> for a list of commands.</span>
           </div>
         </div>
         <div class="terminal-line">
@@ -71,6 +71,35 @@ loader.load(
 
 let isZoomedIn = false;
 let targetZoom = camera.position.z;
+
+terminalDiv.addEventListener("touchstart", () => {
+  document.body.classList.add("no-scroll");
+});
+
+terminalDiv.addEventListener("touchend", () => {
+  document.body.classList.remove("no-scroll");
+});
+
+// Ensure terminal only scrolls within itself and not the body
+terminalDiv.addEventListener("touchstart", (e) => {
+  e.stopPropagation();
+}, { passive: false });
+
+terminalDiv.addEventListener("touchmove", (e) => {
+  const isScrollable = terminalDiv.scrollHeight > terminalDiv.offsetHeight;
+  if (isScrollable) {
+    const { scrollTop, scrollHeight, clientHeight } = terminalDiv;
+
+    // Prevent scrolling outside bounds
+    if (
+      (scrollTop === 0 && e.touches[0].clientY > 0) || // Scrolling up at top
+      (scrollTop + clientHeight >= scrollHeight && e.touches[0].clientY < 0) // Scrolling down at bottom
+    ) {
+      e.preventDefault();
+    }
+  }
+}, { passive: false });
+
 
 
 // Double-click event listener for zoom effect

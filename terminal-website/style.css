@@ -37,13 +37,15 @@
   .terminal-window {
 
     width: 470px; 
-    height: 250px; 
+    height: 260px; 
     background-color: transparent;
     padding: 10px;
     border-radius: 10px;
     overflow: auto;
     font-family: "Press Start 2P";
     font-size: 9px;
+    scroll-behavior: smooth;
+    touch-action: auto;
   }
   
   .primary-bg {
@@ -215,4 +217,9 @@
   .view-btn:hover {
     color: #4069f9;
   }
+
+  .no-scroll {
+    overflow: hidden;
+  }
+  
   
