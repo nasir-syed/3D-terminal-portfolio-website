@@ -156,9 +156,6 @@
     cursor: move;
   }
   
-  .modal-content {
-    width: 100%;
-  }
   .project-modal .modal-content {
     padding: 10px;
   }
@@ -166,7 +163,6 @@
   .modal-content {
     display: flex;
     flex-direction: column;
-
   }
   
   .project-modal h2 {
