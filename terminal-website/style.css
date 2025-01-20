@@ -19,8 +19,8 @@
   body {
     margin: 0;
     height: 100%;
-    color: #333d54;
-    background-color: #a39b7f;
+    color: #f6f6f6;
+    background-color: #262626;
   }
   
   a {
@@ -36,16 +36,18 @@
   
   .terminal-window {
 
-    width: 470px; 
-    height: 250px; 
+    width: 490px; 
+    height: 260px; 
     background-color: transparent;
     padding: 10px;
-    border-radius: 10px;
     overflow: auto;
     font-family: "Press Start 2P";
     font-size: 9px;
     scroll-behavior: smooth;
     touch-action: auto;
+    box-shadow: 0 0 250px rgba(255, 255, 255, 0.6);  
+  
+    
   }
   
   .primary-bg {
@@ -117,7 +119,8 @@
   
   .above {
     font-family: "Silkscreen", monospace;
-    background-color: #a39b7f;
+    background-color: #262626;
+    color: #f6f6f6;
     margin-top: 10px;
     width: 100%;
     gap: 0px;
@@ -135,7 +138,7 @@
   .above p {
     font-size: 15px;
     margin-top: -10px;
-    color: #333d54b0;
+    color: #f6f6f69d;
   }
   ::-webkit-scrollbar {
     display: none;
