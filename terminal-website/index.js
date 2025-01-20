@@ -52,7 +52,7 @@ loader.load(
     terminalObject = new CSS3DObject(terminalDiv);
 
     // Position and scale the terminal to fit the 3D model screen
-    terminalObject.position.set(0, 6.3, 9);
+    terminalObject.position.set(0, 6.4, 9);
     terminalObject.scale.set(0.050, 0.056, 0.055);
 
     // Add the terminal as a child of the 3D model
