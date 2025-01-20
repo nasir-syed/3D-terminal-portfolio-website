@@ -17,12 +17,13 @@ export const app = () => {
     return;
   }
 
+    // Prevent body scrolling when touching the terminal window
   terminalWind.addEventListener("touchstart", () => {
-    document.body.classList.add("no-scroll");
+    document.body.style.overflow = "hidden";  // Disable body scroll
   });
-  
+
   terminalWind.addEventListener("touchend", () => {
-    document.body.classList.remove("no-scroll");
+    document.body.style.overflow = "auto";   // Enable body scroll again
   });
 
   console.log("Terminal elements initialized successfully.");
@@ -93,7 +94,7 @@ function showProjectModal(projectId) {
     case 'mlp':
       modalContent = `
         <h2>MNIST with MLP Model from Scratch</h2>
-        <p>This project involves building a Multi-Layer Perceptron (MLP) model from scratch to classify the MNIST dataset, using Python and TensorFlow.</p>
+        <p>This project involves building a Multi-Layer Perceptron (MLP) model from scratch to classify the MNIST dataset, using Python with Pandas and Numpy Libraries.</p>
       `;
       break;
   
@@ -199,6 +200,27 @@ const COMMANDS = {
     <button class="view-btn" onclick="showProjectModal('gcdf')">[View Description]</button><br><br>
     <a target="_blank" rel="noopener noreferrer" href="https://github.com/nasir-syed/chord-audio-classification" class="social link">Chord Audio Classification</a><br>
     <button class="view-btn" onclick="showProjectModal('caudio')">[View Description]</button><br><br>
+    <a target="_blank" rel="noopener noreferrer" href="https://github.com/nasir-syed/amazon-reviews-sentiment-analysis" class="social link">Amazon Reviews Sentiment Analysis</a><br>
+    <button class="view-btn" onclick="showProjectModal('amzrevs')">[View Description]</button><br><br>
+    <a target="_blank" rel="noopener noreferrer" href="https://github.com/nasir-syed/california-housing-value-prediction" class="social link">California Housing Value Prediction</a><br>
+    <button class="view-btn" onclick="showProjectModal('cali')">[View Description]</button><br><br>
+    <a target="_blank" rel="noopener noreferrer" href="https://github.com/nasir-syed/california-housing-value-prediction" class="social link">Similar Scents Perfume Recommendation/a><br>
+    <button class="view-btn" onclick="showProjectModal('similarscents')">[View Description]</button><br><br>
+    <a target="_blank" rel="noopener noreferrer" href="https://github.com/nasir-syed/Chomper-Game-Website" class="social link">Chomper Web Game (Pacman Inspired)</a><br>
+    <button class="view-btn" onclick="showProjectModal('chomper')">[View Description]</button><br><br>
+    <a target="_blank" rel="noopener noreferrer" href="https://github.com/nasir-syed/Pixstar-Website" class="social link">Pixstar (Pinterest Clone)</a><br>
+    <button class="view-btn" onclick="showProjectModal('pixstar')">[View Description]</button><br><br>
+    <a target="_blank" rel="noopener noreferrer" href="https://github.com/nasir-syed/Clonify" class="social link">Clonify (Spotify Clone)</a><br>
+    <button class="view-btn" onclick="showProjectModal('clonify')">[View Description]</button><br><br>
+    <a target="_blank" rel="noopener noreferrer" href="https://github.com/nasir-syed/4sail-Website" class="social link">4sail Marketplace</a><br>
+    <button class="view-btn" onclick="showProjectModal('4sail')">[View Description]</button><br><br>
+    <a target="_blank" rel="noopener noreferrer" href="https://github.com/nasir-syed/Blind75" class="social link">Blind75 LeetCode Problems</a><br>
+    <button class="view-btn" onclick="showProjectModal('blind75')">[View Description]</button><br><br>
+    <a target="_blank" rel="noopener noreferrer" href="https://github.com/nasir-syed/Java-Quiz-Generator" class="social link">Java Quiz Game (JavaFX GUI)</a><br>
+    <button class="view-btn" onclick="showProjectModal('quiz')">[View Description]</button><br><br>
+    <a target="_blank" rel="noopener noreferrer" href="https://github.com/nasir-syed/Personal-Spotify-Dashboard" class="social link">Personal Spotify Dashboard</a><br>
+    <button class="view-btn" onclick="showProjectModal('spotifydash')">[View Description]</button><br><br>
+    <p>[Click on the name of the project to go to its GitHub page]</p><br>
   `,  
   larry: "<img src='https://preview.redd.it/evil-larry-contender-v0-o2vtj7gpkb6e1.jpeg?width=1170&format=pjpg&auto=webp&s=10958a5cea725761891c1c5037d0da4617c1376d' alt='Evil Larry' />",
 };
