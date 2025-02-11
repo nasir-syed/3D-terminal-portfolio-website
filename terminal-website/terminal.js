@@ -1,7 +1,7 @@
 let terminalOutput;
 let userInput;
 let terminalWind;
-let modals = {}; // Track open modals for each project
+let modals = {}; 
 
 export const app = () => {
   userInput = document.getElementById("userInput");
@@ -12,26 +12,26 @@ export const app = () => {
   console.log("Terminal Output Div:", document.getElementById("terminalOutput"));
 
   if (!userInput || !terminalOutput || !terminalWind) {
-    console.error("Terminal elements are not found. Retrying initialization...");
-    setTimeout(app, 100); // Retry initialization after a short delay
+    console.error("Terminal elements are not found. Retrying initialisation...");
+    setTimeout(app, 100); // Retry initialisation after a short delay
     return;
   }
 
-    // Prevent body scrolling when touching the terminal window
+    // Easier scrolling for mobile phones 
   terminalWind.addEventListener("touchstart", () => {
-    document.body.style.overflow = "hidden";  // Disable body scroll
+    document.body.style.overflow = "hidden";  
   });
 
   terminalWind.addEventListener("touchend", () => {
-    document.body.style.overflow = "auto";   // Enable body scroll again
+    document.body.style.overflow = "auto";   
   });
 
-  console.log("Terminal elements initialized successfully.");
+  console.log("Terminal elements initialised successfully.");
 };
 
 const execute = function executeCommand(input) {
   if (!terminalOutput) {
-    console.error("Terminal output element is not initialized.");
+    console.error("Terminal output element is not initialised.");
     return;
   }
 
@@ -51,8 +51,8 @@ const execute = function executeCommand(input) {
 
   terminalOutput.innerHTML += `<div class="terminal-line">${output}</div>`;
 
-  // Automatically scroll to the bottom of the terminal window
-  const terminalWindow = terminalOutput.closest('.terminal-window'); // Get the parent container
+  // scroll to the bottom of the terminal window
+  const terminalWindow = terminalOutput.closest('.terminal-window');
   if (terminalWindow) {
     terminalWindow.scrollTop = terminalWindow.scrollHeight;
   }
@@ -78,42 +78,111 @@ const key = function keyEvent(e) {
 function showProjectModal(projectId) {
   // Prevent opening a new modal if one is already open for this project
   if (modals[projectId]) {
-    return; // Exit function if modal is already open
+    return; 
   }
 
   const terminalWindow = document.querySelector('.terminal-window');
 
-  // Create modal div
+  
   const modalDiv = document.createElement("div");
   modalDiv.classList.add("project-modal");
 
-  // Set modal content based on the projectId
   let modalContent = '';
   
   switch (projectId) {
     case 'mlp':
       modalContent = `
         <h2>MNIST with MLP Model from Scratch</h2>
-        <p>This project involves building a Multi-Layer Perceptron (MLP) model from scratch to classify the MNIST dataset, using Python with Pandas and Numpy Libraries.</p>
+        <p>A MLP model with RMSProp optimizer for the MNIST dataset, using only NumPy and Pandas, achieving 98% accuracy.</p>
       `;
       break;
   
     case 'gcdf':
       modalContent = `
         <h2>GCDF Guitar Chords Image Classification [with OpenCV]</h2>
-        <p>This project classifies guitar chords from images using OpenCV for image processing and a deep learning model for classification.</p>
+        <p>A TensorFlow CNN model to classify images of G, C, D, and F guitar chords with ~95% test accuracy, with an optional OpenCV integration for real-time classification.</p>
       `;
       break;
   
     case 'caudio':
       modalContent = `
         <h2>Chord Audio Classification</h2>
-        <p>This project aims to classify chord sounds in audio files using a machine learning model for audio feature extraction and classification.</p>
+        <p>Two CNN models for chord recognition: one for acoustic guitar and another for diverse genres/guitar types (e.g., rock).</p>
+      `;
+      break;
+    
+    case 'amzrevs':
+      modalContent = `
+        <h2>Amazon Reviews Sentiment Analysis</h2>
+        <p>A sentiment analysis model to classify Amazon reviews (positive/negative) using Python, NLTK, and scikit-learn.</p>
+      `;
+      break;
+  
+    case 'cali':
+      modalContent = `
+        <h2>California Housing Value Prediction</h2>
+        <p>A machine learning model to predict California housing prices using census data, encompassing data visualisation, preprocessing, and model application.</p>
+      `;
+      break;
+  
+    case 'similarscents':
+      modalContent = `
+        <h2>Similar Scents Perfume Recommendation</h2>
+        <p>A Flask application that recommends perfumes with similar scent profiles based on user-provided input.</p>
+      `;
+      break;
+
+    case 'chomper':
+      modalContent = `
+        <h2>Chomper Web Game (Pacman Inspired)</h2>
+        <p>A Pac-Man-inspired game using JavaScript with dynamic ghost movement, collision detection, power-ups, and a leaderboard to track scores.</p>
+      `;
+      break;
+  
+    case 'pixstar':
+      modalContent = `
+        <h2>Pixstar (Pinterest Clone)</h2>
+        <p>A Pinterest-like platform with core features such as image uploads, search capabilities for users and posts, and a social following system</p>
+      `;
+      break;
+  
+    case 'clonify':
+      modalContent = `
+        <h2>Clonify (Spotify Clone)</h2>
+        <p>A Spotify clone with core functionalities, including song management (add/remove) and playlist creation.</p>
+      `;
+      break;
+
+    case '4sail':
+      modalContent = `
+        <h2>4sail Marketplace</h2>
+        <p>A Dubizzle-like classifieds platform enabling item listing, wishlisting, and real-time buyer/seller communication.</p>
+      `;
+      break;
+
+    case 'blind75':
+      modalContent = `
+        <h2>Blind75 LeetCode Problems</h2>
+        <p>Solved 75 LeetCode problems commonly asked in FAANG company interviews, focusing on data structures and algorithms.</p>
+      `;
+      break;
+  
+    case 'quiz':
+      modalContent = `
+        <h2>Java Quiz Game (JavaFX GUI)</h2>
+        <p>A JavaFX timed quiz application spanning multiple genres, incorporating score tracking and performance feedback.</p>
+      `;
+      break;
+  
+    case 'spotifydash':
+      modalContent = `
+        <h2>Personal Spotify Dashboard</h2>
+        <p>A personal Spotify dashboard with Spotipy and Streamlit, visualising top artists/tracks and analysing song characteristics.  The dashboard provides interactive energy/danceability graphs and personalised music recommendations.</p>
       `;
       break;
   
     default:
-      console.error('Project ID not recognized');
+      console.error('Project ID not recognised');
       return;
   }  
 
@@ -177,21 +246,26 @@ window.closeProjectModal = closeProjectModal;
 
 document.addEventListener("keypress", key);
 document.addEventListener("DOMContentLoaded", () => {
-  app(); // Ensure the terminal is initialized after the DOM is loaded
+  app(); // Ensure the terminal is initialised after the DOM is loaded
 });
 
 const COMMANDS = {
   help:
     'Supported commands: ["<span class="code">about</span>", "<span class="code">experience</span>", "<span class="code">education</span>", "<span class="code">skills</span>", "<span class="code">projects</span>", "<span class="code">contacts</span>"]',
   about:
-    "Hello 👋<br>I'm Syed Nasiruddin, an aspiring web developer and data scientist currently in the final year of my Information Technology Degree at Middlesex University Dubai. I have a burning passion to want and help others with code that I create. I enjoy the limitless potential of impact that I can have with what I build. It is what pushes me every day to become a better developer.",
+    "Hello 👋<br>I'm Syed Nasiruddin, currently in the final year of my Information Technology Degree at Middlesex University Dubai and I have keen interest in Full-Stack Development and Data Science !",
   skills:
-    '<span class="code">Languages:</span> HTML, CSS, JavaScript, TypeScript, Python, Java <br><span class="code">Technologies:</span> Git, REST API\'s<br><span class="code">Frameworks:</span> React.js, Next.js, Vue.js',
+    `
+        <span class="code">Languages:</span> HTML, CSS, JavaScript, Python, Java, SQL<br>
+        <span class="code">Frameworks/Libraries:</span> React.js, Vue.js, Tailwind CSS, Express.js, Node.js<br>
+        <span class="code">Data & Visualisation:</span> MySQL, MongoDB, Tableau<br>
+        <span class="code">General Skills:</span> Full-Stack Development, Machine Learning, Problem-Solving, Teamwork, Leadership, Adaptability, Project Management
+    `,
   education:
     "B.Sc. Honours Infomation Technology - Middlesex University Dubai",
   experience:
     "I'm currently working as a student learning assistant at the university that involves assisting the lecturer in teaching the students.",
-  contact:
+  contacts:
     'You can contact me on any of the following:<br>["<a target="_blank" rel="noopener noreferrer" href="https://github.com/nasir-syed" class="social link">GitHub</a>", "<a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/syed-nasiruddin/" class="social link">Linkedin</a>"]',
     projects: `
     <a target="_blank" rel="noopener noreferrer" href="https://github.com/nasir-syed/MLP-from-scratch" class="social link">MNIST with MLP Model from Scratch</a><br>

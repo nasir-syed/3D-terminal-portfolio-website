@@ -34,18 +34,18 @@ loader.load(
     // Create the CSS3DObject for the terminal window
     terminalDiv = document.createElement("div");
     terminalDiv.innerHTML = `
-      <div class="terminal-window" id="terminalWindow">
+      <div class="terminal-window" id="terminalWindow" onclick="document.getElementById('userInput').focus()">
         <div class="terminal-output" id="terminalOutput">
-          <div class="terminal-line">
-            <span class="help-msg">Welcome to my portfolio! — Type <span class="code">help</span> for a list of supported commands.</span>
-          </div>
+            <div class="terminal-line">
+                <span class="help-msg">Welcome to my portfolio! — Type <span class="code">help</span> for a list of supported commands.</span>
+            </div>
         </div>
         <div class="terminal-line">
-          <span class="success">➜</span>
-          <span class="directory">~</span>
-          <input type="text" class="user-input" id="userInput" autocomplete="off"></input>
+            <span class="success">➜</span>
+            <span class="directory">~</span>
+            <input type="text" class="user-input" id="userInput" autocomplete="off"></input>
         </div>
-      </div>
+    </div>
     `;
 
     // Make the terminal a CSS3DObject
