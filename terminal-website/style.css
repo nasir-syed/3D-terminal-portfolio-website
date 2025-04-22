@@ -176,7 +176,7 @@
   .project-modal h2 {
     color: #4069f9;
     margin-bottom: 10px;
-    font-size: 0.5rem; /* Scales down for smaller screens */
+    font-size: 0.5rem; 
     word-wrap: break-word; 
   }
   
@@ -201,8 +201,8 @@
   }
   
   .modal-content p {
-    margin: 0; /* Removes extra margin added by Bulma */
-    line-height: 1.5; /* Improves readability */
+    margin: 0; 
+    line-height: 1.5; 
   }
   
   .view-btn {

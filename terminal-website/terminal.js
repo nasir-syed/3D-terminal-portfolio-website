@@ -13,11 +13,11 @@ export const app = () => {
 
   if (!userInput || !terminalOutput || !terminalWind) {
     console.error("Terminal elements are not found. Retrying initialisation...");
-    setTimeout(app, 100); // Retry initialisation after a short delay
+    setTimeout(app, 100); 
     return;
   }
 
-    // Easier scrolling for mobile phones 
+  
   terminalWind.addEventListener("touchstart", () => {
     document.body.style.overflow = "hidden";  
   });
@@ -26,7 +26,6 @@ export const app = () => {
     document.body.style.overflow = "auto";   
   });
 
-  console.log("Terminal elements initialised successfully.");
 };
 
 const execute = function executeCommand(input) {
@@ -51,7 +50,7 @@ const execute = function executeCommand(input) {
 
   terminalOutput.innerHTML += `<div class="terminal-line">${output}</div>`;
 
-  // scroll to the bottom of the terminal window
+
   const terminalWindow = terminalOutput.closest('.terminal-window');
   if (terminalWindow) {
     terminalWindow.scrollTop = terminalWindow.scrollHeight;
@@ -76,7 +75,7 @@ const key = function keyEvent(e) {
 
 
 function showProjectModal(projectId) {
-  // Prevent opening a new modal if one is already open for this project
+
   if (modals[projectId]) {
     return; 
   }
@@ -90,6 +89,14 @@ function showProjectModal(projectId) {
   let modalContent = '';
   
   switch (projectId) {
+
+    case 'melodex':
+      modalContent = `
+        <h2>Melodex: Music Reviewing & Personalised Recommendations App</h2>
+        <p>A music reviewing social platform with personalised music discovery based on user preferences like mood (via facial emotion recognition), activity, similar songs, and more.</p>
+      `;
+      break;
+
     case 'mlp':
       modalContent = `
         <h2>MNIST with MLP Model from Scratch</h2>
@@ -195,14 +202,14 @@ function showProjectModal(projectId) {
 
   terminalWindow.appendChild(modalDiv);
 
-  // Mark this modal as open for the projectId
+
   modals[projectId] = modalDiv;
 
-  // for dragging
+
   let isDragging = false;
   let offsetX, offsetY;
 
-  // Mouse down event to start dragging
+
   modalDiv.addEventListener('mousedown', (e) => {
     isDragging = true;
     offsetX = e.clientX - modalDiv.offsetLeft;
@@ -210,7 +217,7 @@ function showProjectModal(projectId) {
     modalDiv.style.cursor = 'grabbing';
   });
 
-  // Mouse move event to move the modal
+
   document.addEventListener('mousemove', (e) => {
     if (isDragging) {
       modalDiv.style.left = `${e.clientX - offsetX}px`;
@@ -218,7 +225,7 @@ function showProjectModal(projectId) {
     }
   });
 
-  // Mouse up event to stop dragging
+
   document.addEventListener('mouseup', () => {
     isDragging = false;
     modalDiv.style.cursor = 'move';
@@ -240,13 +247,9 @@ function closeProjectModal(projectId, modal) {
 window.showProjectModal = showProjectModal;
 window.closeProjectModal = closeProjectModal;
 
-
-
-
-
 document.addEventListener("keypress", key);
 document.addEventListener("DOMContentLoaded", () => {
-  app(); // Ensure the terminal is initialised after the DOM is loaded
+  app();
 });
 
 const COMMANDS = {
@@ -268,6 +271,8 @@ const COMMANDS = {
   contacts:
     'You can contact me on any of the following:<br>["<a target="_blank" rel="noopener noreferrer" href="https://github.com/nasir-syed" class="social link">GitHub</a>", "<a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/syed-nasiruddin/" class="social link">Linkedin</a>"]',
     projects: `
+    <a target="_blank" rel="noopener noreferrer" href="https://github.com/nasir-syed/Melodex" class="social link">Melodex: Music Reviewing & Personalised Recommendations App</a><br>
+    <button class="view-btn" onclick="showProjectModal('melodex')">[View Description]</button><br><br>
     <a target="_blank" rel="noopener noreferrer" href="https://github.com/nasir-syed/MLP-from-scratch" class="social link">MNIST with MLP Model from Scratch</a><br>
     <button class="view-btn" onclick="showProjectModal('mlp')">[View Description]</button><br><br>
     <a target="_blank" rel="noopener noreferrer" href="https://github.com/nasir-syed/GCDF-guitar-chords-classification" class="social link">GCDF Guitar Chords Image Classification [with OpenCV]</a><br>
