@@ -97,6 +97,13 @@ function showProjectModal(projectId) {
       `;
       break;
 
+    case 'visn':
+      modalContent = `
+        <h2>VISN - Dynamic Algorithm Visualiser</h2>
+        <p>An algorithm visualiser that provides dynamic animations (incorporating user input), step-by-step breakdowns, code snippets, complexity analysis, advantages, and more for various algorithms!</p>
+      `;
+      break;
+
     case 'mlp':
       modalContent = `
         <h2>MNIST with MLP Model from Scratch</h2>
@@ -273,6 +280,8 @@ const COMMANDS = {
     projects: `
     <a target="_blank" rel="noopener noreferrer" href="https://github.com/nasir-syed/Melodex" class="social link">Melodex: Music Reviewing & Personalised Recommendations App</a><br>
     <button class="view-btn" onclick="showProjectModal('melodex')">[View Description]</button><br><br>
+    <a target="_blank" rel="noopener noreferrer" href="https://github.com/nasir-syed/VISN-algorithm-visualiser" class="social link">VISN - Dynamic Algorithm Visualiser</a><br>
+    <button class="view-btn" onclick="showProjectModal('visn')">[View Description]</button><br><br>
     <a target="_blank" rel="noopener noreferrer" href="https://github.com/nasir-syed/MLP-from-scratch" class="social link">MNIST with MLP Model from Scratch</a><br>
     <button class="view-btn" onclick="showProjectModal('mlp')">[View Description]</button><br><br>
     <a target="_blank" rel="noopener noreferrer" href="https://github.com/nasir-syed/GCDF-guitar-chords-classification" class="social link">GCDF Guitar Chords Image Classification [with OpenCV]</a><br>
