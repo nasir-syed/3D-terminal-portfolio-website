@@ -104,6 +104,13 @@ function showProjectModal(projectId) {
       `;
       break;
 
+    case 'miss':
+      modalContent = `
+        <h2>[: Multi Index Stock Screener :]</h2>
+        <p>A dynamic app for stock screening and analysis across major U.S. indices, combining powerful filters and visuals for traders and analysts alike.</p>
+      `;
+      break;
+
     case 'mlp':
       modalContent = `
         <h2>MNIST with MLP Model from Scratch</h2>
@@ -282,6 +289,8 @@ const COMMANDS = {
     <button class="view-btn" onclick="showProjectModal('melodex')">[View Description]</button><br><br>
     <a target="_blank" rel="noopener noreferrer" href="https://github.com/nasir-syed/VISN-algorithm-visualiser" class="social link">VISN - Dynamic Algorithm Visualiser</a><br>
     <button class="view-btn" onclick="showProjectModal('visn')">[View Description]</button><br><br>
+    <a target="_blank" rel="noopener noreferrer" href="https://github.com/nasir-syed/multi-index-stock-screener" class="social link">[: Multi Index Stock Screener :]</a><br>
+    <button class="view-btn" onclick="showProjectModal('miss')">[View Description]</button><br><br>
     <a target="_blank" rel="noopener noreferrer" href="https://github.com/nasir-syed/MLP-from-scratch" class="social link">MNIST with MLP Model from Scratch</a><br>
     <button class="view-btn" onclick="showProjectModal('mlp')">[View Description]</button><br><br>
     <a target="_blank" rel="noopener noreferrer" href="https://github.com/nasir-syed/GCDF-guitar-chords-classification" class="social link">GCDF Guitar Chords Image Classification [with OpenCV]</a><br>
